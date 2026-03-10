@@ -46,10 +46,14 @@ git submodule add https://github.com/VizzWard/claude-skills .claude/skills
 
 ## Installing a single skill
 
-If you only want one skill, download the `.skill` file from the [Releases](../../releases) page and install it via Claude Code:
+If you only want one skill, download the `.skill` file from the [Releases](../../releases) page and unzip it into your skills directory:
 
-```
-/skills install git-workflow-skill.skill
+```bash
+# Global install
+unzip git-workflow.skill -d ~/.claude/skills/
+
+# Or per-project install
+unzip git-workflow.skill -d your-project/.claude/skills/
 ```
 
 ---
@@ -61,6 +65,18 @@ Skills are instructions that Claude Code loads automatically when it detects a r
 For example, `git-workflow` activates whenever you mention `commit`, `branch`, `PR`, `issue`, `merge`, `CI`, `release`, or any git-related action.
 
 Learn more: [Claude Code Skills documentation](https://docs.anthropic.com/claude-code/skills)
+
+---
+
+## Creating a new skill
+
+Use the included template to scaffold a new skill:
+
+```bash
+cp -r _template my-skill
+```
+
+Then edit `my-skill/SKILL.md` — update the frontmatter (`name`, `description`) and fill in the content. Add any extended documentation in `my-skill/references/`.
 
 ---
 
